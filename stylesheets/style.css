@@ -68,6 +68,12 @@
     font-size: 14px;
 }
 
+.profile-content__personalia {
+    color: rgba(140, 39, 133, 0.96);
+    margin-top: 0px;
+    font-size: 14px;
+}
+
 @media only screen and (min-width: 800px) {
 
     .page {
