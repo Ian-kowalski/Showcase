@@ -1,15 +1,15 @@
 /*mobile version*/
-
 .page {
     display: flex;
     flex-direction: column;
     font-family: Arial;
     margin: -8px;
     height: max-content;
+    
 }
 
 .personalia {
-    background-color: rgba(140, 39, 133, 0.96);
+    background-image: linear-gradient(rgba(145, 15, 136, 0.75),rgba(250,248,248,0.5));
     width:100%;
     display: flex;
     flex-direction: column;
@@ -17,7 +17,7 @@
 }
 
 .profile {
-    background-color: #faf8f8;
+    background-color: rgba(250,248,248,0.5);
     width: 100%;
 }
 
@@ -48,8 +48,6 @@
 }
 
 .profile-content__element--hidden-mobile {
-    display: flex;
-    flex-direction: column;
     display: none;
 }
 
@@ -61,15 +59,20 @@
 }
 
 .profile-content__institute {
-    color: rgba(0, 0, 0, 0.96);
+    color:  rgba(140, 39, 133, 0.96);
     margin-top: 0px;
     font-size: 14px;
 }
 
 .profile-content__personalia {
-    color: rgba(0, 0, 0, 0.96);
+    color: rgba(0, 0, 0, 1);
     margin-top: 0px;
     font-size: 14px;
+    text-wrap: nowrap;
+}
+
+.profile-content__period{
+    display: none;
 }
 
 @media only screen and (min-width: 800px) {
@@ -79,14 +82,22 @@
     }
 
     .personalia {
+        background-image: linear-gradient(-90deg, rgba(250,248,248,0.5), rgba(145, 15, 136, 0.75));
         width: min-content;
-        padding: 15px;
+        padding: 8px;
     }
 
     .person-name{
         order: -1;
     }
 
+    .person-logo {
+        border: 4px solid black;
+        border-radius: 50%;
+        margin: 15px 0px 15px 0px;
+        width: 75%;
+        animation: glow 3s ease alternate;
+    }
     .profile-content__category--hidden-mobile{
         display: flex;
         flex-direction: column;
@@ -95,6 +106,11 @@
     /*fix: anders als stipje zichtbaar*/
     .profile-content__category--hidden-mobile hr{
         width: 100%;
+    }
+
+    .profile-content__period{
+        display: flex;
+        font-size: 12px;
     }
 
     .profile-content__element--hidden-mobile {
