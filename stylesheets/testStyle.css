@@ -1,0 +1,35 @@
+:root {
+    font-size: 16px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+    --text-primary: #000000;
+    --text-secondary: #8c2785;
+    --bg-primary:#464555;
+    --bg-secondary:#AAA7CC;
+    --bg-tretrary:#7472A5;
+    --bg-acsend:#8C2785;
+
+body{
+    color: var(--text-primary);
+    background-color: var(--bg-secondary);
+    margin: 0;
+    padding: 0;
+}
+
+body::-webkit-scrollbar{
+    width: 0.5rem;
+}
+
+body::-webkit-scrollbar-track{
+    background: var(--bg-tretrary);
+}
+
+body::-webkit-scrollbar-thumb{
+    background: var(--bg-acsend);
+}
+
+main{
+    margin-left: 5rem;
+    padding: 1rem;
+}
+
