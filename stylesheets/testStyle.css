@@ -27,7 +27,7 @@
   main {
     margin: 0;
     padding: 1rem;
-    background: var(--bg-primary);
+    background: var(--bg-main);
     color:var(--text-primary);
     display: flex;
     flex-direction: row;
@@ -201,27 +201,30 @@
   }
   
   .dark {
+    --bg-main: #23232e;
     --text-primary: #b6b6b6;
     --text-secondary: #ececec;
-    --bg-primary: #23232e;
+    --bg-primary: #363643;
     --bg-secondary: #141418;
     --ac-primary: #ff7eee;
     --ac-secondary: #df49a6;
   }
   
   .light {
+    --bg-main: #ffffff;
     --text-primary: #1f1f1f;
     --text-secondary: #000000;
-    --bg-primary: #ffffff;
+    --bg-primary: #cecece;
     --bg-secondary: #e4e4e4;
     --ac-primary: #ff7eee;
     --ac-secondary: #df49a6;
   }
   
   .solar {
+    --bg-main: #fdf6e3;
     --text-primary: #576e75;
     --text-secondary: #35535c;
-    --bg-primary: #fdf6e3;
+    --bg-primary: #bcb7a9;
     --bg-secondary: #f5e5b8;
     --ac-primary: #ff7eee;
     --ac-secondary: #df49a6;
