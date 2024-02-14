@@ -1,6 +1,13 @@
 :root {
     font-size: 16px;
     font-family: 'Open Sans';
+    --bg-main: #ffffff;
+    --text-primary: #1f1f1f;
+    --text-secondary: #000000;
+    --bg-primary: #cecece;
+    --bg-secondary: #e4e4e4;
+    --ac-primary: #ff7eee;
+    --ac-secondary: #df49a6;
 
     --transition-speed: 600ms;
   }
@@ -199,35 +206,30 @@
       left: 0px;
     }
   }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-main: #23232e;
+      --text-primary: #b6b6b6;
+      --text-secondary: #ececec;
+      --bg-primary: #363643;
+      --bg-secondary: #141418;
+    }
+  }
   
   .dark {
-    --bg-main: #23232e;
-    --text-primary: #b6b6b6;
-    --text-secondary: #ececec;
-    --bg-primary: #363643;
-    --bg-secondary: #141418;
     --ac-primary: #ff7eee;
     --ac-secondary: #df49a6;
   }
   
   .light {
-    --bg-main: #ffffff;
-    --text-primary: #1f1f1f;
-    --text-secondary: #000000;
-    --bg-primary: #cecece;
-    --bg-secondary: #e4e4e4;
-    --ac-primary: #ff7eee;
-    --ac-secondary: #df49a6;
+    --ac-primary: #e37eff;
+    --ac-secondary: #8a49df;
   }
   
   .solar {
-    --bg-main: #fdf6e3;
-    --text-primary: #576e75;
-    --text-secondary: #35535c;
-    --bg-primary: #bcb7a9;
-    --bg-secondary: #f5e5b8;
-    --ac-primary: #ff7eee;
-    --ac-secondary: #df49a6;
+    --ac-primary: #7effa9;
+    --ac-secondary: #8ddf49;
   }
   
   .theme-icon {
