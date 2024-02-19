@@ -40,20 +40,7 @@
 .nav-link svg {
   width: 2rem;
   min-width: 2rem;
-  margin: 0 1.5rem;
-}
-
-.fa-primary {
-  color: #c822ff
-}
-
-.fa-secondary {
-  color: #8ab4ff
-}
-
-.fa-primary,
-.fa-secondary {
-  transition: var(--transition-speed);
+  margin: 0 1.5rem;  
 }
 
 .logo {
@@ -61,24 +48,21 @@
 
 }
 
-#path1 {
-  fill: url(#Gradient1);
-}
-.stop1-ac-primary {
-  stop-color: #1A6DFF;
-}
-.stop2-ac-primary {
-  stop-color: #C822FF;
+.primary-path--fill {
+  fill:  currentColor;
+  color: var(--text-secondary);
 }
 
-#path2 {
-  fill: url(#Gradient2);
+.primary-path--stroke {
+  stroke:  var(--text-secondary);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-miterlimit: 10; stroke-width: 3;
+  fill: none;
 }
-.stop1-ac-secondary {
-  stop-color: #8ab4ff;
-}
-.stop2-ac-secondary {
-  stop-color: #e492ff;
+.secondary-path--fill {
+  color: #a224f6;
+  fill: currentColor;
 }
 
 @media only screen and (min-width: 600px) 
@@ -147,6 +131,6 @@
     }
     
     .navbar:hover .logo svg {
-      transform: rotate(-180deg);
+      transform: rotate(-90deg);
     }
 }
