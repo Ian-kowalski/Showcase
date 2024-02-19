@@ -2,7 +2,6 @@
   position: fixed;
   background-color: var(--bg-primary);
   transition: width 600ms ease;
-  overflow:auto;
   bottom: 0;
   width: 100vw;
   height: 5rem;
@@ -30,6 +29,7 @@
   text-decoration: none;
   transition: var(--transition-speed);
   justify-content: center;
+  width: 100%;
 }
 
 .link-text {
@@ -105,7 +105,7 @@
       left: 0px;
     }
     .logo{
-      display: contents;
+      display: block;
       font-weight: bold;
       text-transform: uppercase;
       margin-bottom: 1rem;
