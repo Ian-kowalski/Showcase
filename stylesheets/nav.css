@@ -1,0 +1,152 @@
+.navbar {
+  position: fixed;
+  background-color: var(--bg-primary);
+  transition: width 600ms ease;
+  overflow:auto;
+  bottom: 0;
+  width: 100vw;
+  height: 5rem;
+}
+
+.navbar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-item {
+  width: 100%;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  height: 5rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: var(--transition-speed);
+  justify-content: center;
+}
+
+.link-text {
+  display: none;
+  margin-left: 1rem;
+}
+
+.nav-link svg {
+  width: 2rem;
+  min-width: 2rem;
+  margin: 0 1.5rem;
+}
+
+.fa-primary {
+  color: #c822ff
+}
+
+.fa-secondary {
+  color: #8ab4ff
+}
+
+.fa-primary,
+.fa-secondary {
+  transition: var(--transition-speed);
+}
+
+.logo {
+  display: none;
+
+}
+
+#path1 {
+  fill: url(#Gradient1);
+}
+.stop1-ac-primary {
+  stop-color: #1A6DFF;
+}
+.stop2-ac-primary {
+  stop-color: #C822FF;
+}
+
+#path2 {
+  fill: url(#Gradient2);
+}
+.stop1-ac-secondary {
+  stop-color: #8ab4ff;
+}
+.stop2-ac-secondary {
+  stop-color: #e492ff;
+}
+
+@media only screen and (min-width: 600px) 
+{
+    .nav-link{
+      justify-content: left;
+      filter: grayscale(100%) opacity(0.7);
+    }
+    .nav-link:hover {
+      filter: grayscale(0%) opacity(1);
+      background: var(--bg-secondary);
+      color: var(--text-secondary);
+    }
+
+    .navbar {
+      top: 0;
+      width: 5rem;
+      height: 100vh;
+        
+    }
+    .navbar-nav{
+      flex-direction: column;
+    }
+  
+    .navbar:hover {
+      width: 16rem;
+    }
+  
+    .navbar:hover .link-text {
+      display: inline;
+    }
+  
+    .navbar:hover .logo svg
+    {
+      margin-left: 11rem;
+    }
+  
+    .navbar:hover .logo-text
+    {
+      left: 0px;
+    }
+    .logo{
+      display: contents;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      text-align: center;
+      color: var(--text-secondary);
+      background: var(--bg-secondary);
+      font-size: 1.5rem;
+      letter-spacing: 0.3ch;
+      width: 100%;
+    }
+
+    .logo svg {
+      transform: rotate(0deg);
+      transition: var(--transition-speed);
+    }
+    
+    .logo-text
+    {
+      display: inline;
+      position: absolute;
+      left: -999px;
+      transition: var(--transition-speed);
+    }
+    
+    .navbar:hover .logo svg {
+      transform: rotate(-180deg);
+    }
+}

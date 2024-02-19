@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"name": "Showcase",
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Showcase",
+		"liveServer.settings.port": 5501
+	}
+}

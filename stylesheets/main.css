@@ -1,0 +1,46 @@
+@import "nav.css";
+@import "index.css";
+
+:root {
+    font-size: 16px;
+    font-family: 'Open Sans';
+    --bg-main: #ffffff;
+    --text-primary: #1f1f1f;
+    --text-secondary: #000000;
+    --bg-primary: #cecece;
+    --bg-secondary: #e4e4e4;
+    --ac-primary: #ff7eee;
+    --ac-secondary: #df49a6;
+
+    --transition-speed: 600ms;
+  }
+  
+  body {
+    color: var(--text-primary);
+    background-color: white;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+  
+  body::-webkit-scrollbar-track {
+    background: var(--bg-secondary)
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background: var(--ac-primary)
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-main: #23232e;
+      --text-primary: #b6b6b6;
+      --text-secondary: #ececec;
+      --bg-primary: #363643;
+      --bg-secondary: #141418;
+    }
+  }
+
