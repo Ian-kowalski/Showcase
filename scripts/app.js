@@ -40,9 +40,6 @@ try {
 } catch (error) {
     alert(JSON.stringify("somthing whent wrong try again later"))
 }
-
-
-
 });
 
 function showError() {
