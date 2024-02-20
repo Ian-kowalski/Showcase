@@ -1,4 +1,6 @@
-fetch("nav.html")
+
+
+  fetch("nav.html")
   .then(response => {
     return response.text()
   })
