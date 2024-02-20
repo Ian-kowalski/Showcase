@@ -9,7 +9,7 @@ main {
   color:var(--text-primary);
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  margin-bottom: 5rem;
 }
 
 
@@ -21,6 +21,8 @@ main {
     --text-secondary: #000000;
     --bg-primary: #cecece;
     --bg-secondary: #e4e4e4;
+    --ac-primary: #b40cc3;
+
     --transition-speed: 600ms;
   }
   
@@ -50,6 +52,7 @@ main {
       --text-secondary: #ececec;
       --bg-primary: #363643;
       --bg-secondary: #141418;
+      --ac-primary: #FF00EE;
     }
 
 
@@ -58,6 +61,7 @@ main {
     /* Large screens */
     @media only screen and (min-width: 600px) {
       main {
+        margin-bottom: 0;
         margin-left: 5rem;
         flex-direction: row;
       }

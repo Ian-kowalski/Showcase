@@ -1,5 +1,5 @@
 // Het formulier met de knop
-const form = document.querySelector('#demo-captcha');
+const form = document.querySelector('#form-email');
 
 // Koppel er een event listener aan
 form.addEventListener('submit', onSubmit);

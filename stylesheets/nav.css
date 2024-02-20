@@ -61,7 +61,7 @@
   fill: none;
 }
 .secondary-path--fill {
-  color: #a224f6;
+  color: var(--ac-primary);
   fill: currentColor;
 }
 
