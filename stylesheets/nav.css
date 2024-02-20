@@ -88,7 +88,7 @@
     }
   
     .navbar:hover {
-      width: 16rem;
+      width: min-content;
     }
   
     .navbar:hover .link-text {

@@ -1,6 +1,17 @@
 @import "nav.css";
 @import "index.css";
 @import "cookies.css";
+@import "contact.css";
+main {
+  margin: 0;
+  padding: 1rem;
+  background: var(--bg-main);
+  color:var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
 
 :root {
     font-size: 16px;
@@ -40,5 +51,15 @@
       --bg-primary: #363643;
       --bg-secondary: #141418;
     }
+
+
   }
+  
+    /* Large screens */
+    @media only screen and (min-width: 600px) {
+      main {
+        margin-left: 5rem;
+        flex-direction: row;
+      }
+    }
 

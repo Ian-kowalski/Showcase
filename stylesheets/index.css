@@ -1,13 +1,5 @@
-main {
-    margin: 0;
-    padding: 1rem;
-    background: var(--bg-main);
-    color:var(--text-primary);
-    display: flex;
-    flex-direction: row;
-  }
 
-  .personalia {
+.personalia {
     width:100%;
     display: flex;
     flex-direction: column;
@@ -27,9 +19,3 @@ main {
     animation: glow 3s ease alternate;
 }
 
-  /* Large screens */
-  @media only screen and (min-width: 600px) {
-    main {
-        margin-left: 5rem;
-    }
-  }
