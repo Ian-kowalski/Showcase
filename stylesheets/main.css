@@ -51,8 +51,13 @@ main {
       --text-primary: #b6b6b6;
       --text-secondary: #ececec;
       --bg-primary: #363643;
-      --bg-secondary: #141418;
+      --bg-secondary: #2e2e36;
       --ac-primary: #FF00EE;
+      --ac-primary-hover: #810979;
+      --ac-secondary: #ef71e6;
+      --ac-secondary-hover: #743970;
+
+      --text-ac-primary: #292525;
     }
 
 

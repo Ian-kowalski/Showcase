@@ -3,7 +3,7 @@ class GDPR {
     constructor() {
         this.bindEvents();
 
-        if(this.cookieStatus() !== 'accept') this.showGDPR();
+        if(this.cookieStatus() == null ) this.showGDPR();
     }
 
     bindEvents() {
