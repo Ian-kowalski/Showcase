@@ -30,6 +30,7 @@ main {
     background-color: white;
     margin: 0;
     padding: 0;
+    margin-bottom: 5rem;
   }
   
   body::-webkit-scrollbar {
@@ -69,6 +70,10 @@ main {
         margin-bottom: 0;
         margin-left: 5rem;
         flex-direction: row;
+      }
+
+      body {
+        margin-bottom: 0;
       }
     }
 
