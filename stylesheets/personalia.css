@@ -1,0 +1,27 @@
+.personalia {
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile {
+    width: 100%;
+}
+
+.person-logo {
+    border: 4px solid black;
+    border-radius: 50%;
+    margin: 15px 0px 15px 0px;
+    width: 20%;
+    animation: glow 3s ease alternate;
+}
+hr{
+    width: 100%;
+}
+@media only screen and (min-width: 600px) {
+    .personalia {
+        width:25%;
+    }
+
+}

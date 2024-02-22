@@ -1,3 +1,6 @@
+@import "main.css";
+@import "personalia.css";
+
 form {
     display: flex;
     flex-direction: column;

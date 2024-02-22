@@ -1,21 +1,8 @@
+@import "cookies.css";
+@import "main.css";
+@import "personalia.css";
 
-.personalia {
-    width:100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+main{
     height: 100vh;
-}
-
-.profile {
-    width: 100%;
-}
-
-.person-logo {
-    border: 4px solid black;
-    border-radius: 50%;
-    margin: 15px 0px 15px 0px;
-    width: 20%;
-    animation: glow 3s ease alternate;
 }
 

@@ -1,7 +1,5 @@
 @import "nav.css";
-@import "index.css";
-@import "cookies.css";
-@import "contact.css";
+
 main {
   margin: 0;
   padding: 1rem;
@@ -10,6 +8,7 @@ main {
   display: flex;
   flex-direction: column;
   margin-bottom: 5rem;
+  height: 100vh;
 }
 
 
@@ -38,7 +37,8 @@ main {
   }
   
   body::-webkit-scrollbar-track {
-    background: var(--bg-secondary)
+    background: var(--bg-primary)
+    
   }
   
   body::-webkit-scrollbar-thumb {
