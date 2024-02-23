@@ -102,6 +102,8 @@ function showMassegeError() {
 
     grecaptcha.ready( function () {
         grecaptcha.execute('6LfSDHgpAAAAAK_I_INXeLkkkIhYWS__b4akWAkE', { action: 'submit' }).then(async function (token) {
+            const sectionPersonalia = document.querySelector('.personalia');
+            let pResult = document.createElement('p');
             try {
                 // Verstuur het eerst naar jouw eigen server.
                 // Voor dit voorbeeld is een nodejs server bijgevoegd (Zie map server).
@@ -120,12 +122,13 @@ function showMassegeError() {
                 const result = await response.json();
                 let isHuman;
 
-                if (result.score > 0.6) {
+                if (result.score > 0.8) {
                     isHuman = true;
                 }
                 else {
                     isHuman = false;
                 }
+
 
                 if (isHuman) {
                     try {
@@ -136,22 +139,19 @@ function showMassegeError() {
                         });
                     
                         let data = await response.json();
-
-                        const sectionPersonalia = document.querySelector('.personalia');
-                        let pResult = document.createElement('p');
                         pResult.innerHTML = "massege about: "+ JSON.stringify(data.subject)+ " was send";
                         sectionPersonalia.appendChild(pResult);
                         form.reset();
                     
                     } catch (error) {
-                        console.log(JSON.stringify("somthing whent wrong try again later"))
+                        pResult.innerHTML = "somthing whent wrong try again later";
+                        sectionPersonalia.appendChild(pResult);
                     }
-                }else{
-                    console.log(JSON.stringify("you are a bot"))
                 }
             }
             catch (e) {
-                console.log('Het verzenden van de captcha is mislukt: ' + e.message)
+                pResult.innerHTML = "somthing whent wrong try again later";
+                sectionPersonalia.appendChild(pResult);
             }
         });
     });
