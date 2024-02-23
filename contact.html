@@ -8,37 +8,41 @@
     
     <script src="scripts/script.js"></script>
     <script src="https://www.google.com/recaptcha/api.js?render=6LfSDHgpAAAAAK_I_INXeLkkkIhYWS__b4akWAkE"></script>
-    <script type="module" src="scripts/captcha.js"></script>
+    <script type="module" src="scripts/app.js"></script>
     <title>contact</title>
 </head>
 <body>  
     <nav class = "navbar" ></nav>
     <main class="contact">
         <personalia class="personalia hide"></personalia>
-        <form id="form-email">
-            <h3>Stuur mij een bericht</h1>
-            <label for="email">
-                <span>je e-mail:</span>
-                <input type="email" name="email" id="email" required minlength="8" disabled>
+
+        <form class="contact-form" id="form-email">
+            <h3>Stuur mij een bericht</h1>   
+            
+
+            <label for="email"> e-mail:
+                <input type="email" name="email" id="email"  minlength="8" required placeholder="iemand@mail.com" autocomplete="email"/> 
+                <span class="error" aria-live="polite"></span>
+            </label>
+           
+            
+
+            <label for="subject"> onderwerp:
+                
+                <input type="text" name="onderwerp" id="subject" required maxlength="200" placeholder="max 200 tekens"/>
                 <span class="error" aria-live="polite"></span>
             </label>
 
-            <label for="onderwerp">
-                <span>onderwerp:</span>
-                <input type="text" name="onderwerp" id="onderwerp" required maxlength="200" disabled>
+            
+
+            <label for="massege">bericht
+                <textarea type="text" name="massege" id="massege" required maxlength="600" placeholder="max 600 tekens"></textarea>
                 <span class="error" aria-live="polite"></span>
             </label>
 
-            <label for="massege">
-                <span>bericht:</span>
-                <textarea type="text" name="massege" id="massege" required maxlength="600" disabled></textarea>
-                <span aria-live="polite"></span>
-            </label>
         
             <input type="submit" value="Verzend">
-        
         </form>
-        
     </main>
 
 

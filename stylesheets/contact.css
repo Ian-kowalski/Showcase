@@ -1,58 +1,52 @@
 @import "main.css";
 @import "personalia.css";
 
-form {
+.contact-form{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    margin: 0 1rem 0;
+}
+label{
+    flex-direction: row;
     width: 100%;
+    margin-bottom: 1rem;
 }
 
-input[type="email"] {
-    appearance: none;
-
-    width: 100%;
-    border: 1px solid #333;
-    margin: 0;
+input{
+    border: 3px solid var(--bg-primary);
 
     font-family: inherit;
     font-size: 90%;
-
-    box-sizing: border-box;
+    width: 100%;
+}
+input:focus{
+    border: 4px solid var(--ac-primary);
 }
 
-
-/* This is our style for the invalid fields */
-input:invalid {
-    border-color: #900;
-    background-color: #fdd;
+textarea{
+    border: 3px solid var(--bg-primary);
+    height: 10rem;
+    width: 100%;
 }
 
-input:focus:invalid {
-    outline: none;
+textarea:focus{
+    border: 4px solid var(--ac-primary);
 }
 
 /* This is the style of our error messages */
 .error {
     width: 100%;
     padding: 0;
-
     font-size: 80%;
-    color: white;
-    background-color: #900;
-    border-radius: 0 0 5px 5px;
-
+    color: rgb(218, 0, 0);
     box-sizing: border-box;
 }
 
 .error.active {
     display: block;
-    margin-bottom: 4px;
-    padding: 0.3em;
 }
 
 /* Move reCAPTCHA v3 badge up */ 
-
 .grecaptcha-badge {
     bottom: 6rem !important;
 }
