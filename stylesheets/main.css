@@ -2,13 +2,13 @@
 
 main {
   margin: 0;
+  margin-bottom: 5rem;
   padding: 1rem;
   background: var(--bg-main);
   color:var(--text-primary);
   display: flex;
   flex-direction: column;
-  margin-bottom: 5rem;
-  height: 100vh;
+ 
 }
 
 
@@ -30,7 +30,7 @@ main {
     background-color: white;
     margin: 0;
     padding: 0;
-    margin-bottom: 5rem;
+    height: 100%;
   }
   
   body::-webkit-scrollbar {
@@ -70,10 +70,7 @@ main {
         margin-bottom: 0;
         margin-left: 5rem;
         flex-direction: row;
-      }
-
-      body {
-        margin-bottom: 0;
+        height: 100svh;
       }
     }
 
