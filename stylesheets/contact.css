@@ -51,12 +51,25 @@ textarea:focus{
     bottom: 6rem !important;
 }
 
+input[type = "submit"] {
+    background-color: var(--ac-primary);
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid var(--text-secondary);
+    color: var(--text-primary);
+}
+
+input[type = "submit"]:hover {
+    background-color:var(--ac-primary-hover);
+}
+
 /* Large screens */
 @media only screen and (min-width: 600px) {
     form {
         display: flex;
         flex-direction: column;
-        align-items:start;
+        margin: 0 1rem 0;
+        width: 100%;
     }
     .grecaptcha-badge {
         bottom: 1rem !important;

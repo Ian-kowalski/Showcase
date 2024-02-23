@@ -118,7 +118,6 @@ function showMassegeError() {
                 });
                 // handel het resultaat af en bepaal of je te maken hebt met een mens of een bot.
                 const result = await response.json();
-                let humanFactor;
                 let isHuman;
 
                 if (result.score > 0.6) {
@@ -127,12 +126,6 @@ function showMassegeError() {
                 else {
                     isHuman = false;
                 }
-
-                // Onderstaande code: pas aan naar je eigen smaak
-                const sectionPersonalia = document.querySelector('.personalia');
-                let pResult = document.createElement('p');
-                pResult.innerHTML = humanFactor;
-                sectionPersonalia.appendChild(pResult);
 
                 if (isHuman) {
                     try {
@@ -143,13 +136,18 @@ function showMassegeError() {
                         });
                     
                         let data = await response.json();
-                        alert("massege about: "+ JSON.stringify(data.subject)+ " send")
+
+                        const sectionPersonalia = document.querySelector('.personalia');
+                        let pResult = document.createElement('p');
+                        pResult.innerHTML = "massege about: "+ JSON.stringify(data.subject)+ " was send";
+                        sectionPersonalia.appendChild(pResult);
+                        form.reset();
                     
                     } catch (error) {
-                        alert(JSON.stringify("somthing whent wrong try again later"))
+                        console.log(JSON.stringify("somthing whent wrong try again later"))
                     }
                 }else{
-                    alert(JSON.stringify("you are a bot"))
+                    console.log(JSON.stringify("you are a bot"))
                 }
             }
             catch (e) {
