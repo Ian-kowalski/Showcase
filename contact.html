@@ -13,36 +13,26 @@
 </head>
 <body>  
     <nav class = "navbar" ></nav>
-
-
-
     <main class="contact">
-        <personalia class="personalia"></personalia>
+        <personalia class="personalia hide"></personalia>
         <form id="form-email">
-            <h3>waneer ben ik aanwezig?</h1>
-                <hr>
-
             <h3>Stuur mij een bericht</h1>
-                <hr>
-            <label for="firstnaam">
-                <span>je voornaam:</span>
-                <input type="text" name="firstnaam" id="firstnaam" required>
-                <span class="error" aria-live="polite"></span>
-            </label>    
-            <label for="lastnaam">
-                <span>je achternaam:</span>
-                <input type="text" name="lastnaam" id="lastnaam" required>
-                <span class="error" aria-live="polite"></span>
-            </label>
-            <label for="tel">
-                <span>je telefoonnummer:</span>
-                <input type="tel" name="tel" id="tel"  minlength="8" required>
-                <span class="error" aria-live="polite"></span>
-            </label>
             <label for="email">
                 <span>je e-mail:</span>
-                <input type="email" name="email" id="email" required minlength="8">
+                <input type="email" name="email" id="email" required minlength="8" disabled>
                 <span class="error" aria-live="polite"></span>
+            </label>
+
+            <label for="onderwerp">
+                <span>onderwerp:</span>
+                <input type="text" name="onderwerp" id="onderwerp" required maxlength="200" disabled>
+                <span class="error" aria-live="polite"></span>
+            </label>
+
+            <label for="massege">
+                <span>bericht:</span>
+                <textarea type="text" name="massege" id="massege" required maxlength="600" disabled></textarea>
+                <span aria-live="polite"></span>
             </label>
         
             <input type="submit" value="Verzend">

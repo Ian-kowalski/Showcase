@@ -1,3 +1,7 @@
 @import "cookies.css";
 @import "main.css";
 @import "personalia.css";
+
+.profile-__title{
+color: var(--ac-primary);
+}

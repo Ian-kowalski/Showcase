@@ -20,14 +20,20 @@ main {
     --text-secondary: #000000;
     --bg-primary: #cecece;
     --bg-secondary: #e4e4e4;
-    --ac-primary: #b40cc3;
+    --ac-primary: #50ed81;
+
+    --ac-primary-hover: #3dac7c;
+    --ac-secondary: #0ed87d;
+    --ac-secondary-hover: #08ae74;
+
+    --text-ac-primary: #292525;
 
     --transition-speed: 600ms;
   }
   
   body {
     color: var(--text-primary);
-    background-color: white;
+    background-color: var(--bg-main);
     margin: 0;
     padding: 0;
     height: 100%;

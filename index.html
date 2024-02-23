@@ -13,26 +13,36 @@
     <nav class = "navbar" ></nav>
 
     <main class="index">
-        <personalia class="personalia">
-
-        </personalia>
+        <personalia class="personalia"> </personalia>
     
         <section class="profile">
-    
+            <h2 class="profile-__title">profile</h3>
             <section class="profile-content">
     
-                <article class="profile-content__category--hidden-mobile">
-                    <h3 class="profile-content__category-title">Profiel</h3>
-                    <hr>
+                <introduction class="profile-content__category">
+                    <h3 class="profile-content__category-title">introduction</h3>
                     <p class="profile-content__description">
                         Student ICT aan het Windesheim momenteel in mijn tweede jaar
                     </p>
-                </article>
-    
-    
-                <article class="profile-content__category">
-                    <h3 class="profile-content__category-title">Opleidingen</h3>
                     <hr>
+                </introduction>
+
+                <skils class="profile-content__category">
+                    <h3 class="profile-content__category-title">skils</h3>
+                    <p class="profile-content__description">
+                        <ul>
+                            <li> c# </li>
+                            <li> java </li>
+                            <li> html </li>
+                            <li> css </li>
+                        </ul>
+                    </p>
+                    <hr>
+                </skils>
+    
+    
+                <education class="profile-content__category">
+                    <h3 class="profile-content__category-title">Opleidingen</h3>
                     <div class="profile-content__element">
                         <div class="profile-content__element-header">
                             <h4 class="profile-content__title">HAVO</h4>
@@ -56,14 +66,12 @@
                         </div>
                         <p class="profile-content__institute">Windesheim, Zwolle</p>
                     </div>
-                    
-                </article>
-    
+                    <hr>
+                </education>
             </section>
-    
         </section>
 
-        <section class="gdpr-consent hide">
+        <gdpr class="gdpr-consent hide">
 
             <div class="gdpr-consent__description">
                 <p>Deze website gebruikt cookies.
@@ -73,10 +81,10 @@
 
             <div class="gdpr-consent__choice">
                 <button class="gdpr-consent__button--accept">Ja, natuurlijk</button>
-                <button class="gdpr-consent__button--reject">Neu, misschien later</button>
+                <button class="gdpr-consent__button--reject">Nee, dankje</button>
             </div>
 
-        </section>
+        </gdpr>
 
 
     </main>
