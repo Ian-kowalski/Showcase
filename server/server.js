@@ -18,14 +18,14 @@ app.get('/', (req, res) => {
 });
 
 
+
+
+
 app.post('/form', (req, res) => {
-
-    console.log(req.body);
-
     let email = req.body.email;
     let subject = req.body.subject;
     let massege = req.body.massege;
-
+    
     res.json({email: email, subject: subject,massege: massege});
 });
 

@@ -1,0 +1,136 @@
+#sendButton {
+display: flex;
+border: none;
+outline: none;
+background-color: var(--ac-primary);
+align-items: center;
+justify-content: center;
+color: var(--text-secondary);
+height: 40px;
+aspect-ratio: 2/1;
+border-radius: 40px;
+position: relative;
+gap: 6px;
+cursor: pointer;
+overflow: hidden;
+transition: all 0.5s;
+}
+
+#sendButton.active {
+    flex-direction: column;
+    aspect-ratio: 1/1;
+    gap: 0;
+}
+
+#sendButton.active.sent {
+    flex-direction: row;
+    aspect-ratio: 2/1;
+    transition-delay: 1s;
+}
+
+#sendButton .text {
+    width: fit-content;
+    transition: all 0.5s;
+    overflow: hidden;
+    text-align: left;
+}
+
+#sendButton.active .text {
+    width: 0;
+}
+
+#sendButton.active.sent .text {
+    width: fit-content;
+    transition-delay: 1s;
+}
+
+#sendButton .sendIcon {
+    height: 30%;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s;
+}
+
+#sendButton.active .sendIcon {
+    transform: translateY(-80%);
+
+}
+
+#sendButton.active.sent .sendIcon {
+    transform: translateY(-40px);
+}
+
+#sendButton .sendIcon svg {
+    height: 100%;
+    color: var(--text-secondary)
+}
+
+#sendButton .smoke {
+    display: flex;
+    width: 10px;
+    justify-content: space-between;
+    align-items: stretch;
+    aspect-ratio: 1/2;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    bottom: 2px;
+}
+
+#sendButton.active .smoke {
+    opacity: 1;
+    visibility: visible;
+}
+
+#sendButton.active.sent .smoke {
+    opacity: 0;
+    visibility: hidden;
+}
+
+#sendButton .smoke>span {
+    display: block;
+    width: 1px;
+    height: 100%;
+    background-color: var(--text-secondary);
+    animation: smoke 0.3s linear infinite;
+}
+
+#sendButton .smoke>span:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+#sendButton .smoke>span:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+@keyframes smoke {
+0% {
+    transform: translateY(-100%);
+}
+
+100% {
+    transform: translateY(100%);
+}
+}
+
+#sendButton .check {
+    height: 50%;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s;
+    clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+    transition: all 0.5s, right 0.5s 1s;
+}
+
+#sendButton .check svg {
+    height: 100%;
+    color: var(--text-secondary);
+}
+
+#sendButton.sent .check {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}

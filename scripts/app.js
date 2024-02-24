@@ -49,6 +49,12 @@ massege.addEventListener("input", (event) => {
 
 });
 
+function showError(){
+    showEmailError()
+    showSubjectError()
+    showMassegeError()
+}
+
 function showEmailError() {
     if (email.validity.valueMissing) {
         // If the field is empty,
@@ -66,7 +72,6 @@ function showEmailError() {
     // Set the styling appropriately
     emailError.className = "error active";
 }
-
 
 function showSubjectError() {
    if(subject.validity.valueMissing){
@@ -89,71 +94,105 @@ function showMassegeError() {
      massegeError.className = "error active";
  }
 
- form.addEventListener("submit", async (event) => {
+        const sendButton = document.querySelector("#sendButton")
+        const sendButtonText = document.querySelector("#sendButton .text")
+sendButton.addEventListener("click", async (event) => {
     // Then we prevent the form from being sent by canceling the event
     event.preventDefault();
 
-    // if the email field is valid, we let the form submit
-    if (!email.validity.valid || !subject.validity.valid || !massege.validity.valid) {
-        // If it isn't, we display an appropriate error message
-        showError();
-        return;
-    }
 
-    grecaptcha.ready( function () {
-        grecaptcha.execute('6LfSDHgpAAAAAK_I_INXeLkkkIhYWS__b4akWAkE', { action: 'submit' }).then(async function (token) {
-            const sectionPersonalia = document.querySelector('.personalia');
-            let pResult = document.createElement('p');
-            try {
-                // Verstuur het eerst naar jouw eigen server.
-                // Voor dit voorbeeld is een nodejs server bijgevoegd (Zie map server).
-                // Je kunt dit voor je showcase ook aanpassen door je eigen server project (bijv. ASP.NET) te gebruiken.
-                const response = await fetch('http://localhost:3000/captcha', {
-                    method: "POST",
-                    body: JSON.stringify({
-                        response: token
-                    }),
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
+
+        // if the email field is valid, we let the form submit
+        if (!email.validity.valid || !subject.validity.valid || !massege.validity.valid) {
+            // If it isn't, we display an appropriate error message
+            showError();
+            return;
+        }
+
+        if (!sendButton.classList.contains("active")) {
+            sendButton.classList.add("active")
+
+        grecaptcha.ready( function () {
+            grecaptcha.execute('6LfSDHgpAAAAAK_I_INXeLkkkIhYWS__b4akWAkE', { action: 'submit' }).then(async function (token) {
+                const formSubmit = document.getElementById('submit');
+                console.log(formSubmit)
+                try {
+                    // Verstuur het eerst naar jouw eigen server.
+                    // Voor dit voorbeeld is een nodejs server bijgevoegd (Zie map server).
+                    // Je kunt dit voor je showcase ook aanpassen door je eigen server project (bijv. ASP.NET) te gebruiken.
+                    const response = await fetch('http://localhost:3000/captcha', {
+                        method: "POST",
+                        body: JSON.stringify({
+                            response: token
+                        }),
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        }
+                    });
+                    // handel het resultaat af en bepaal of je te maken hebt met een mens of een bot.
+                    const result = await response.json();
+                    let isHuman;
+
+                    if (result.score > 0.8) {
+                        isHuman = true;
                     }
-                });
-                // handel het resultaat af en bepaal of je te maken hebt met een mens of een bot.
-                const result = await response.json();
-                let isHuman;
+                    else {
+                        isHuman = false;
+                    }
 
-                if (result.score > 0.8) {
-                    isHuman = true;
+
+                    if (isHuman) {
+                        try {
+                            let response = await fetch('http://localhost:3000/form', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({email: email.value, subject: subject.value, massege: massege.value}) 
+                            });
+                        
+                            //let data = await response.json();
+
+                            verzonden(true);
+
+                            sendButton.classList.add("sent")
+                            sendButtonText.innerText = "verzonden"
+                            setTimeout(() => {
+                                sendButtonText.innerText = "verzend"
+                                sendButton.classList.remove("active")
+                                sendButton.classList.remove("sent")
+                                form.reset();
+                            },2000)
+                        } catch (error) {
+                            verzonden(false);
+                        }
+                    }
                 }
-                else {
-                    isHuman = false;
+                catch (e) {
+                    verzonden(false);
                 }
 
-
-                if (isHuman) {
-                    try {
-                        let response = await fetch('http://localhost:3000/form', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({email: email.value, subject: subject.value, massege: massege.value}) 
-                        });
+                function verzonden( bool ) {
+                    sendButton.classList.add("sent");
+                    if(bool){
+                        sendButtonText.innerText = "verzonden"
+                    }
+                    else{
+                        sendButtonText.innerText = "niet verzonden"
+                    }
                     
-                        let data = await response.json();
-                        pResult.innerHTML = "massege about: "+ JSON.stringify(data.subject)+ " was send";
-                        sectionPersonalia.appendChild(pResult);
+                    setTimeout(() => {
+                        if(bool){
+                            sendButtonText.innerText = "verzend"
+                        }
+                        else{
+                            sendButtonText.innerText = "try again later"
+                        }
+                        sendButton.classList.remove("active");
+                        sendButton.classList.remove("sent");
                         form.reset();
-                    
-                    } catch (error) {
-                        pResult.innerHTML = "somthing whent wrong try again later";
-                        sectionPersonalia.appendChild(pResult);
-                    }
+                    }, 2000);
                 }
-            }
-            catch (e) {
-                pResult.innerHTML = "somthing whent wrong try again later";
-                sectionPersonalia.appendChild(pResult);
-            }
+            });
         });
-    });
-
+    }
 });
