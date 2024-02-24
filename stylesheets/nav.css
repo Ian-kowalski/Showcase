@@ -59,7 +59,8 @@
   stroke:  var(--text-secondary);
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-miterlimit: 10; stroke-width: 3;
+  stroke-miterlimit: 10; 
+  stroke-width: 3;
   fill: none;
 }
 .secondary-path--fill {

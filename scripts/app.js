@@ -153,15 +153,6 @@ sendButton.addEventListener("click", async (event) => {
                             //let data = await response.json();
 
                             verzonden(true);
-
-                            sendButton.classList.add("sent")
-                            sendButtonText.innerText = "verzonden"
-                            setTimeout(() => {
-                                sendButtonText.innerText = "verzend"
-                                sendButton.classList.remove("active")
-                                sendButton.classList.remove("sent")
-                                form.reset();
-                            },2000)
                         } catch (error) {
                             verzonden(false);
                         }
@@ -172,23 +163,28 @@ sendButton.addEventListener("click", async (event) => {
                 }
 
                 function verzonden( bool ) {
-                    sendButton.classList.add("sent");
+                    
                     if(bool){
+                        sendButton.classList.add("sent");
                         sendButtonText.innerText = "verzonden"
                     }
                     else{
+                        sendButton.classList.add("notSent");
                         sendButtonText.innerText = "niet verzonden"
                     }
                     
                     setTimeout(() => {
                         if(bool){
                             sendButtonText.innerText = "verzend"
+                            sendButton.classList.remove("active");
+                            sendButton.classList.remove("sent");
                         }
                         else{
                             sendButtonText.innerText = "try again later"
+                            sendButton.classList.remove("active");
+                            sendButton.classList.remove("notSent");
                         }
-                        sendButton.classList.remove("active");
-                        sendButton.classList.remove("sent");
+
                         form.reset();
                     }, 2000);
                 }
