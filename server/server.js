@@ -17,10 +17,6 @@ app.get('/', (req, res) => {
     res.send("Hallo wereld!");
 });
 
-
-
-
-
 app.post('/form', (req, res) => {
     let email = req.body.email;
     let subject = req.body.subject;
