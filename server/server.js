@@ -26,7 +26,7 @@ app.post('/form', (req, res) => {
     let subject = req.body.subject;
     let massege = req.body.massege;
 
-    res.json({email: email, subject: subject, massege: massege});
+    res.json({email: email, subject: subject,massege: massege});
 });
 
 app.listen(port, () => console.log(`Data API listening on port ${port}!`))
