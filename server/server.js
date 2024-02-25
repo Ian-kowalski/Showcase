@@ -38,11 +38,13 @@ app.post('/form', async (req, res) => {
         to: "ian.kowalski@hotmail.com",
         subject: subject, // Subject line
         text: massege, // plain text body
-        html: "<b>"+ massege +"</b>", // html body
+        html: 
+        "<b>"+subject+"<b>"+
+        "<p>"+ massege +"</p>", // html body
       });
 
       console.log("Message sent: %s", info.messageId);
-    res.json({email: email, subject: subject,massege: massege});
+    res.json({info: info, subject: subject,massege: massege});
 });
 
 app.listen(port, () => console.log(`Data API listening on port ${port}!`))

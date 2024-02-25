@@ -150,7 +150,8 @@ sendButton.addEventListener("click", async (event) => {
                                 body: JSON.stringify({email: email.value, subject: subject.value, massege: massege.value}) 
                             });
                         
-                            //let data = await response.json();
+                            let data = await response.json();
+                            //console.log(data);
 
                             verzonden(true);
                         } catch (error) {
