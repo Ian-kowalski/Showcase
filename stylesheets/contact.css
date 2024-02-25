@@ -72,8 +72,9 @@ input[type = "submit"]:hover {
         margin: 0 1rem 0;
         width: 100%;
     }
+
     .grecaptcha-badge {
-        bottom: 1rem !important;
+        top: 1rem !important;
     }
 }
 

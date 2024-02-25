@@ -1,3 +1,5 @@
+@import "svg.css";
+
 #sendButton {
 display: flex;
 border: none;
@@ -76,12 +78,11 @@ transition: all 0.5s;
 
 #sendButton .sendIcon svg {
     height: 100%;
-    color: var(--text-secondary)
 }
 
 #sendButton .smoke {
     height: 50%;
-    display: flex;
+    display: none;
     width: 10px;
     justify-content: space-between;
     align-items: stretch;
@@ -91,16 +92,19 @@ transition: all 0.5s;
 }
 
 #sendButton.active .smoke {
+    display: flex;
     opacity: 1;
     visibility: visible;
 }
 
 #sendButton.active.sent .smoke {
+    display: none;
     opacity: 0;
     visibility: hidden;
 }
 
 #sendButton.active.notSent .smoke {
+    display: none;
     opacity: 0;
     visibility: hidden;
 }
@@ -134,7 +138,7 @@ transition: all 0.5s;
 #sendButton .check {
     height: 50%;
     width: fit-content;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     transition: all 0.5s;
@@ -144,17 +148,17 @@ transition: all 0.5s;
 
 #sendButton .check svg {
     height: 100%;
-    color: var(--text-secondary);
 }
 
 #sendButton.sent .check {
+    display: flex;
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
 }
 
 #sendButton .cross {
     height: 50%;
     width: fit-content;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     transition: all 0.5s;
@@ -164,9 +168,9 @@ transition: all 0.5s;
 
 #sendButton .cross svg {
     height: 100%;
-    color: var(--text-secondary);
 }
 
 #sendButton.notSent .cross {
+    display: flex;
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
 }

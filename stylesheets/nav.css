@@ -1,3 +1,5 @@
+@import "svg.css";
+
 .navbar {
   position: fixed;
   background-color: var(--bg-primary);
@@ -48,24 +50,6 @@
 .logo {
   display: none;
 
-}
-
-.primary-path--fill {
-  fill:  currentColor;
-  color: var(--text-secondary);
-}
-
-.primary-path--stroke {
-  stroke:  var(--text-secondary);
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-miterlimit: 10; 
-  stroke-width: 3;
-  fill: none;
-}
-.secondary-path--fill {
-  color: var(--ac-primary);
-  fill: currentColor;
 }
 
 @media only screen and (min-width: 600px) 

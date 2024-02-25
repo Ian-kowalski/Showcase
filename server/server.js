@@ -17,11 +17,31 @@ app.get('/', (req, res) => {
     res.send("Hallo wereld!");
 });
 
-app.post('/form', (req, res) => {
+const nodemailer = require("nodemailer");
+
+const transport = nodemailer.createTransport({
+    host: "sandbox.smtp.mailtrap.io",
+    port: 2525,
+    auth: {
+      user: "c72c7fa069a508",
+      pass: "d0726dda0e97ca"
+    }
+  });
+
+app.post('/form', async (req, res) => {
     let email = req.body.email;
     let subject = req.body.subject;
     let massege = req.body.massege;
-    
+
+    const info = await transport.sendMail({
+        from: email,
+        to: "ian.kowalski@hotmail.com",
+        subject: subject, // Subject line
+        text: massege, // plain text body
+        html: "<b>"+ massege +"</b>", // html body
+      });
+
+      console.log("Message sent: %s", info.messageId);
     res.json({email: email, subject: subject,massege: massege});
 });
 
