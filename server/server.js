@@ -39,12 +39,15 @@ app.post('/form', async (req, res) => {
         subject: subject, // Subject line
         text: massege, // plain text body
         html: 
-        "<b>"+subject+"<b>"+
-        "<p>"+ massege +"</p>", // html body
+        "<b>"+subject+"</b>"+
+        "<p><span style='white-space: pre-wrap'>"+ massege +"</span></p> <br>"+
+        "<footer>"+
+            "<p> reply to: <br>"+
+            "<a href='mailto:"+email+"'>"+email+"</a></p>"+
+        "</footer>", // html body
       });
 
-      console.log("Message sent: %s", info.messageId);
-    res.json({info: info, subject: subject,massege: massege});
+    res.json({info: info.response , subject: subject, massege: massege});
 });
 
 app.listen(port, () => console.log(`Data API listening on port ${port}!`))

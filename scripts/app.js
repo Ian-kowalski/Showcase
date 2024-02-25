@@ -151,7 +151,7 @@ sendButton.addEventListener("click", async (event) => {
                             });
                         
                             let data = await response.json();
-                            //console.log(data);
+                            console.log(data);
 
                             verzonden(true);
                         } catch (error) {
