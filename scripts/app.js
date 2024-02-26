@@ -6,7 +6,7 @@ const emailError = document.querySelector("#email + span.error");
 const subject = document.getElementById("subject");
 const subjectError = document.querySelector("#subject + span.error");
 
-const massege = document.getElementById("massege");
+const Message = document.getElementById("massege");
 const massegeError = document.querySelector("#massege + span.error");
 
 email.addEventListener("input", (event) => {
@@ -37,8 +37,8 @@ subject.addEventListener("input", (event) => {
 
 });
 
-massege.addEventListener("input", (event) => {
-    if(massege.validity.valid){
+Message.addEventListener("input", (event) => {
+    if(Message.validity.valid){
         massegeError.textContent = ""; // Reset the content of the message
         massegeError.className = "error"; // Reset the visual state of the message
     } 
@@ -87,7 +87,7 @@ function showSubjectError() {
 }
 
 function showMassegeError() {
-    if(massege.validity.valueMissing){
+    if(Message.validity.valueMissing){
         massegeError.textContent = "You need to enter an massege address.";
     }
      // Set the styling appropriately
@@ -103,7 +103,7 @@ sendButton.addEventListener("click", async (event) => {
 
 
         // if the email field is valid, we let the form submit
-        if (!email.validity.valid || !subject.validity.valid || !massege.validity.valid) {
+        if (!email.validity.valid || !subject.validity.valid || !Message.validity.valid) {
             // If it isn't, we display an appropriate error message
             showError();
             return;
@@ -120,7 +120,7 @@ sendButton.addEventListener("click", async (event) => {
                     // Verstuur het eerst naar jouw eigen server.
                     // Voor dit voorbeeld is een nodejs server bijgevoegd (Zie map server).
                     // Je kunt dit voor je showcase ook aanpassen door je eigen server project (bijv. ASP.NET) te gebruiken.
-                    const response = await fetch('http://localhost:3000/captcha', {
+                    const response = await fetch('http://127.0.0.1:5291/api/Captcha', {
                         method: "POST",
                         body: JSON.stringify({
                             response: token
@@ -144,16 +144,23 @@ sendButton.addEventListener("click", async (event) => {
 
                     if (isHuman) {
                         try {
-                            let response = await fetch('http://localhost:3000/form', {
+                            let response = await fetch('http://127.0.0.1:5291/api/Contact', {
                                 method: 'POST',
-                                headers: { 'Content-Type': 'application/json' },
-                                body: JSON.stringify({email: email.value, subject: subject.value, massege: massege.value}) 
+                                body: JSON.stringify({
+                                    email: email.value, 
+                                    subject: subject.value, 
+                                    Message: Message.value
+                                }),
+                                headers: { 
+                                    'Accept': 'application/json',
+                                    'Content-Type': 'application/json' 
+                                }
                             });
                         
                             let data = await response.json();
                             console.log(data);
 
-                            verzonden(true);
+                            verzonden(data.success);
                         } catch (error) {
                             verzonden(false);
                         }

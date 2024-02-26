@@ -1,10 +1,3 @@
-
-.container {
-    display: flex;
-    flex-direction: column;
-    font-family: Arial;
-}
-
 .gdpr-consent {
     display: flex;
     flex-direction: column;
@@ -19,6 +12,7 @@
     background: var(--bg-secondary);
     border: 2px solid var(--text-secondary);
     border-radius: 15px 15px 15px 15px;
+    z-index: 100;
 }
 
 .gdpr-consent__description{
