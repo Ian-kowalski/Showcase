@@ -17,18 +17,31 @@
         <personalia class="personalia hide"></personalia>
 
         <form class="contact-form" id="form-email">
-            <h3>Stuur mij een bericht</h1>   
+            <h3>Stuur mij een bericht</h3>   
             
+                <label for="firstname"> naam
+                    <input type="text" name="firstname" id="firstname" required placeholder="john" autocomplete="name"/> 
+                    <span class="error" aria-live="polite"></span>
+                </label>
 
-            <label for="email"> e-mail:
-                <input type="email" name="email" id="email"  minlength="8" required placeholder="iemand@mail.com" autocomplete="email"/> 
+                <label for="lastname"> achternaam
+                    <input type="text" name="lastname" id="lastname" required placeholder="doe" autocomplete="family-name"/> 
+                    <span class="error" aria-live="polite"></span>
+                </label>
+
+            <label for="phone"> telefoon nummer
+                <input type="tel" name="phone" id="phone" required placeholder="06-12345678" pattern="(^\+[0-9]{2}|^\+[0-9]{2}\(0\)|^\(\+[0-9]{2}\)\(0\)|^00[0-9]{2}|^0)([0-9]{9}$|[0-9\-\s]{10}$)"/> 
+                <span class="error" aria-live="polite"></span>
+            </label>
+
+            <label for="email"> e-mail
+                <input type="email" name="email" id="email"  minlength="8" required placeholder="john-doe@mail.com" autocomplete="email"/> 
                 <span class="error" aria-live="polite"></span>
             </label>
            
             
 
-            <label for="subject"> onderwerp:
-                
+            <label for="subject"> onderwerp
                 <input type="text" name="onderwerp" id="subject" required maxlength="200" placeholder="max 200 tekens"/>
                 <span class="error" aria-live="polite"></span>
             </label>

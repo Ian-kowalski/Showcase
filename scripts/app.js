@@ -9,90 +9,114 @@ const subjectError = document.querySelector("#subject + span.error");
 const Message = document.getElementById("massege");
 const massegeError = document.querySelector("#massege + span.error");
 
-email.addEventListener("input", (event) => {
-    // Each time the user types something, we check if the
-    // form fields are valid.
+const firstname = document.getElementById("firstname");
+const firstnameError = document.querySelector("#firstname + span.error");
 
-    if (email.validity.valid ) {
-        // In case there is an error message visible, if the field
-        // is valid, we remove the error message.
-        emailError.textContent = ""; // Reset the content of the message
-        emailError.className = "error"; // Reset the visual state of the message
+const lastname = document.getElementById("lastname");
+const lastnameError = document.querySelector("#lastname + span.error");
+
+const phone = document.getElementById("phone");
+const phoneError = document.querySelector("#phone + span.error");
+
+
+email.addEventListener("input", (event) => { setEventToInput(email, emailError, validateEmail()) });
+subject.addEventListener("input", (event) => { setEventToInput(subject, subjectError, validatefield(subject,subjectError,200)) });
+Message.addEventListener("input", (event) => { setEventToInput(Message, massegeError, validatefield(Message,massegeError,600)) });
+firstname.addEventListener("input", (event) => { setEventToInput(firstname, firstnameError, validateName(firstname,firstnameError)) });
+lastname.addEventListener("input", (event) => { setEventToInput(lastname, lastnameError, validateName(lastname,lastnameError)) });
+phone.addEventListener("input", (event) => { setEventToInput(phone, phoneError, validatePhone()) });
+
+function setEventToInput(input, inputError, errorFunction) {
+    if(!errorFunction){
+        inputError.className = "error active";
+
+    }else{
+        inputError.textContent = "";
+        inputError.className = "error";
     }
-    else {
-        // If there is still an error, show the correct error
-        showEmailError();
-    }
-});
-
-subject.addEventListener("input", (event) => {
-    if(subject.validity.valid){
-        subjectError.textContent = ""; // Reset the content of the message
-        subjectError.className = "error"; // Reset the visual state of the message
-    } 
-    else {
-        // If there is still an error, show the correct error
-        showSubjectError();
-    }
-
-});
-
-Message.addEventListener("input", (event) => {
-    if(Message.validity.valid){
-        massegeError.textContent = ""; // Reset the content of the message
-        massegeError.className = "error"; // Reset the visual state of the message
-    } 
-    else {
-        // If there is still an error, show the correct error
-        showMassegeError();
-    }
-
-});
-
-function showError(){
-    showEmailError()
-    showSubjectError()
-    showMassegeError()
 }
 
-function showEmailError() {
+function validateForm(){
+    if( !validateName(firstname,firstnameError) || !validateName(lastname,lastnameError || !validatePhone() || !validateEmail() ||!validatefield(subject,subjectError,200) || validatefield(Message,massegeError,600))){
+        return false
+    }else{
+        return true
+    }
+
+}
+
+
+
+function validateEmail() {
     if (email.validity.valueMissing) {
         // If the field is empty,
         // display the following error message.
-        emailError.textContent = "You need to enter an e-mail address.";
+        emailError.textContent = "";
+        emailError.textContent = "vul een e-mail aderess in";
+        return false
+        
     } else if (email.validity.typeMismatch) {
         // If the field doesn't contain an email address,
         // display the following error message.
-        emailError.textContent = "Entered value needs to be an e-mail address.";
+        emailError.textContent = "";
+        emailError.textContent = "De ingevoerde waarde moet een e-mailadres zijn.";
+        return false
     } else if (email.validity.tooShort) {
         // If the data is too short,
         // display the following error message.
-        emailError.textContent = `E-mail should be at least ${email.minLength} characters; you entered ${email.value.length}.`;
+        emailError.textContent = "";
+        emailError.textContent = `E-mail zou op zijn minst ${email.minLength} karakters moeten zijn; jij hebt er ${email.value.length}.`;
+        return false
     }
-    // Set the styling appropriately
-    emailError.className = "error active";
+    emailError.textContent = "";
+    return true
+
 }
 
-function showSubjectError() {
-   if(subject.validity.valueMissing){
-        subjectError.textContent = "You need to enter an subject.";
+function validatefield(field, error, MaxwordCount) {
+    if(field.validity.valueMissing){
+        error.textContent = "";
+        error.textContent = `vul een ${field.labels[0].textContent} in.`;
+        return false
     }
-
-    if(subject.validity.length > 200){
-        console.log("200");
-        subjectError.textContent = "200";
+    if(field.value.length > MaxwordCount){
+        error.textContent = "";
+        error.textContent = `je kunt maar ${MaxwordCount} tekens gebruiken`;
+        return false
     }
-    // Set the styling appropriately
-    subjectError.className = "error active";
-}
+    error.textContent = "";
+     return true
+ }
 
-function showMassegeError() {
-    if(Message.validity.valueMissing){
-        massegeError.textContent = "You need to enter an massege address.";
+ function validateName(name, nameError) {
+    if(name.validity.valueMissing){
+        nameError.textContent = "";
+        nameError.textContent = `vul een ${name.labels[0].textContent} in.`;
+        return false
     }
      // Set the styling appropriately
-     massegeError.className = "error active";
+     nameError.textContent = "";
+     return true
  }
+
+ function validatePhone() {
+    
+    let regex = new RegExp(/(^\+[0-9]{2}|^\+[0-9]{2}\(0\)|^\(\+[0-9]{2}\)\(0\)|^00[0-9]{2}|^0)([0-9]{9}$|[0-9\-\s]{10}$)/);
+    console.log(regex.test(phone.value));
+    if(phone.validity.valueMissing){
+        phoneError.textContent = "";
+        phoneError.textContent = `vul een ${phone.labels[0].textContent} in.`;
+        return false
+    }else if (!regex.test(phone.value)) {
+        phoneError.textContent = "";
+        phoneError.textContent = "Invalid phone number";
+    return false
+    }
+
+     phoneError.textContent = "";
+     return true
+ }
+
 
         const sendButton = document.querySelector("#sendButton")
         const sendButtonText = document.querySelector("#sendButton .text")
@@ -100,14 +124,9 @@ sendButton.addEventListener("click", async (event) => {
     // Then we prevent the form from being sent by canceling the event
     event.preventDefault();
 
-
-
-        // if the email field is valid, we let the form submit
-        if (!email.validity.valid || !subject.validity.valid || !Message.validity.valid) {
-            // If it isn't, we display an appropriate error message
-            showError();
-            return;
-        }
+    if(!validateForm()){
+        return
+    }
 
         if (!sendButton.classList.contains("active")) {
             sendButton.classList.add("active")
