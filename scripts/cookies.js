@@ -20,11 +20,9 @@ class GDPR {
         });
     }
 
-
-
     cookieStatus(status) {
 
-        if (status) {
+        if (status =='accept' ) {
             localStorage.setItem('gdpr-consent-choice', status);
             this.saveDate();
         }
