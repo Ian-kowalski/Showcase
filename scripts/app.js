@@ -167,7 +167,10 @@ sendButton.addEventListener("click", async (event) => {
                                 method: 'POST',
                                 body: JSON.stringify({
                                     email: email.value, 
-                                    subject: subject.value, 
+                                    subject: subject.value,
+                                    firstname: firstname.value,
+                                    lastname: lastname.value,
+                                    phone: phone.value,
                                     Message: Message.value
                                 }),
                                 headers: { 
